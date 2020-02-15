@@ -2,6 +2,7 @@
 
 body {
   font-family: 'Merriweather', serif;
+  
 }
 .container {
   display: flex;
@@ -9,10 +10,43 @@ body {
 }
 
 h1 {
+  color: white;
   font-family: 'Montserrat', sans-serif;
+  padding-top: 20px;
 }
 
 h2 {
   font-family: 'Montserrat', sans-serif;
+}
+
+.landing-img {
+  background-image: url("https://res.cloudinary.com/sagacity/image/upload/c_crop,h_3168,w_4752,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1080/Top_Doctors_tu3xux.jpg");
+  height: 600px;
+  width: 100%;
+}
+
+.search-img{
+  background-image: url("https://res.cloudinary.com/sagacity/image/upload/c_crop,h_3168,w_4752,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1080/Top_Doctors_tu3xux.jpg");
+  height: 200px;
+  width: 100%;
+}
+
+.landing-form {
+  position: absolute;
+  top: 550px;
+  left: 30;
+  width: 94%
+}
+
+.search-form {
+  position: absolute;
+  top: 120px;
+  left: 30;
+  width: 94%
+}
+
+.btn {
+  background-color: rgb(177, 22, 22);
+  border: none;
 }
 
