@@ -22,12 +22,10 @@ $(document).ready(function() {
     (async () => {
       let medService = new MedService();
       const ailmentResults = await medService.getDoctorByAilment(query);
-      console.log(ailmentResults)
       if (ailmentResults.data.length > 0) {
         getElements(ailmentResults.data);
       } else if (ailmentResults.data.length === 0) {
         const nameResults = await medService.getDoctorByName(query);
-        console.log(nameResults)
         if (nameResults.data.length > 0) {
           getElements(nameResults.data);
         } else {
@@ -39,14 +37,13 @@ $(document).ready(function() {
 
     // Check response data and assign variables //
     function getElements(response) {
-      console.log(response);
       if (!response || response.data === 0) {
         $(".results").html("Sorry, there are no results that match your request. Please try again.");
       } else if (response.length === 1) {
-          $("#resultNumber").html(`Displaying ${response.length} result.`);
-        } else {
-          $("#resultNumber").html(`Displaying ${response.length} results.`);
-        }
+        $("#resultNumber").html(`Displaying ${response.length} result.`);
+      } else {
+        $("#resultNumber").html(`Displaying ${response.length} results.`);
+      }
       for (let i = 0; i < response.length; i++) {
         let firstName = response[i].profile.first_name;
         let lastName = response[i].profile.last_name;
@@ -60,6 +57,7 @@ $(document).ready(function() {
         let website = response[i].practices[0].website;
         if (!website) {
           website = "No website available.";
+        }
         printResults(i, firstName, lastName, title, bio, acceptsNewPatients, address, city, state, phone, website);
       }
     }
@@ -81,7 +79,6 @@ $(document).ready(function() {
             </ul>
             <blockquote>${bio}</blockquote>
           </div>`);
-      }
     }
   });
 });
