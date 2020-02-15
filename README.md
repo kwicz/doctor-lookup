@@ -63,6 +63,7 @@ _Have a bug or an issue with this application? [Open a new issue](https://github
 
 ## Technologies Used
 
+* Better Doctor API
 * Javascript
 * jQuery
 * npm
