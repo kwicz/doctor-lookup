@@ -27,21 +27,21 @@ $(document).ready(function() {
           getElements(nameResults.data);
         } else {
           console.log("Name and Ailment lengthsa are 0");
-          $("#results").html("Sorry, there are no results that match your request");
+          $("#results").html("Sorry, there are no results that match your request. Please try again.");
         }
       }
     })();
 
     function getElements(response) {
       console.log("response: ", response);
-      if (!response || response.data === 0) {
+      if (!response.data || response.data === 0) {
         $(".results").html("Sorry, there are no results that match your request. Please try again.");
       } else {
-        printHeader(response);
+        printResults(response);
       }
     }
 
-    function printHeader(response) {
+    function printResults(response) {
       for (let i = 0; i < response.length; i++) {
         let firstName = response[i].profile.first_name;
         let lastName = response[i].profile.last_name;
@@ -70,11 +70,5 @@ $(document).ready(function() {
           </div>`);
       }
     }
-
-    // $(".card-header").on("click", function(){
-    //   let id = event.target.id;
-    //   $("#body"+ id).show();
-    // });
-
   });
 });
