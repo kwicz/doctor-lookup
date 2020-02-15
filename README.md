@@ -1,8 +1,12 @@
 # _Doctor Lookup_
 
-#### _An application to search for doctors in your area by name or specialty, Feb 2020_
+#### _An application to search for doctors in your area by name or specialty, Valentine's Day, 2020_
 
 #### By _**K. Wicz**_
+
+## Preview ##
+
+![Landing Page Preview](./src/landing-page.png)
 
 ## Description
 
