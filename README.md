@@ -1,70 +1,54 @@
-# _Galactic Age Calculator_
+# _Doctor Lookup_
 
-#### Description 
-_Calculate a user's age and life expectancy on each planet.
- Feb 2020._
+#### _{Brief description of application}, Feb 2020_
 
 #### By _**K. Wicz**_
 
+
 ## Preview
 
-![Landing Page Preview](landing-page.png)
+[![Landing Page Preview](url-for-img)]
 
-**[View Live Preview](https://admiring-hodgkin-6c8b1d.netlify.com/)**
+**[View Live Preview](https://kwicz.github.io/doctor-lookup/)**
 
 ## Description
 
-Inspired by the Sci-Fi Trilogy _Remembrance of Earth's Past_ by Cixin Liu, this site allows users to plan for inter-solar system travel with the fictitious space travel organization, The Halo Group.  This Halo Group website will allow their customers to enter their age and how many years they plan to be cryogenically frozen to see how many years old they would be and the difference in their age and their estimated life expectancy on different planets that are part of a travel package.
+_{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
 
-## Project Specifications
+## Project Specification
 
-|Behavior|Input|Output|
-|---|:---:|:---:|
-|User inputs age|--|error|
-||"twenty"|error|
-|User inputs age under 80|20|60 (years until estimated life expectancy)
-|User inputs age over 80|90|10 (years past estimated life expectancy)|
-|User inputs preferred cryogenically frozen years|20|est. life expectancy + 20|
-|User over 80 inputs preferred cryogenically frozen years|20|error|
-|User selects planet|Mercury|Earth age / .24|
-||20|Estimated total years left / .24|
-||90|Estimated years over / .24|
-|User selects planet|Venus|Earth age / .62|
-||20|Estimated total years left / .62|
-||90|Estimated years over / .62|
-|User selects planet|Mars|Earth age / 1.88|
-||20|Estimated total years left / 1.88|
-||90|Estimated years over / 1.88|
-|User selects planet|Jupiter|Earth age / 11.86|
-||20|Estimated total years left / 11.86|
-||90|Estimated years over / 11.86|
+| Behavior | Input | Output |
+|:---|:---:|:---:|
+|User searches program by medical issue and program returns list of doctors who treat that issues|Anxiety|Doctors who treat anxiety|
+|User searches program by name and program returns list of doctors with that name|Jones|Doctors named Jones|
+|User seraches for invalid data and program returns error|I love lamp|"Sorry, but we don't have any listings that match your search criteria"|
+|User searches for valid data|Ear Infection|Doctor output will include first name, last name, address, phone number, website, and if doctor is accepting new patients|
 
 ## Setup/Installation Requirements
 
-_In Terminal:_
+In Terminal:
 
-* Navigate to where you want this application to be saved, i.e.:
+1. Navigate to where you want this application to be saved, i.e.:
 ```cd desktop```
-* Clone the file from GitHub with HTTPS
-```git clone https://github.com/kwicz/galactic-age-calculator.git```
-* Open file in your preferred text editor
-* On Mac: ```open -a {your text editor} galactic-age-calculator```
-* On Windows: ```galactic-age-calculator```
+2. Clone the file from GitHub with HTTPS
+```git clone https://github.com/kwicz/doctor-lookup.git```
+3. Navigate to the new directory and install requirements.
+```sh
+cd 2_14_20
+npm install
+```
+3. Open file in your preferred text editor
+4. On Mac: ```open -a {your text editor} doctor-lookup```
+5. On Windows: ```doctor-lookup```
 
-_Download Manually:_
+To Download Manually:
 
-* Navigate to https://github.com/kwicz/galactic-age-calculator.
+* Navigate to https://github.com/kwicz/doctor-lookup.
 * Click green "Clone or Download" button.
 * Click "Download ZIP".
 * Click downloaded file to unzip.
-* Open folder called "galactic-age-calculator".
+* Open folder called "doctor-lookup-master".
 * Right click "index.html" and select your preferred browser or text editor.
-
-## Future Additions
-
-* Add planet images.
-* Add planet informational details.
-* Add functionality for Saturn and Uranus.
 
 ## Known Bugs
 
@@ -72,22 +56,79 @@ _No known bugs at this time._
 
 ## Support and contact details
 
-_Have a bug or an issue with this application? [Open a new issue](https://github.com/kwicz/galactic-age-calculator/issues) here on GitHub._
+_Have a bug or an issue with this application? [Open a new issue](https://github.com/kwicz/doctor-lookup/issues) here on GitHub._
 
 ## Technologies Used
 
-* Node.js
-* Webpack
 * Javascript
 * jQuery
+* npm
+* Webpack
+* ESLint
+* Babel
 * Jest
 * HTML & CSS
 * Bootstrap 4
-* [Bootsnipp](https://bootsnipp.com/snippets/351Vo)
-* [Start Bootstrap](https://startbootstrap.com/snippets/pricing-table/)
+* Google Fonts
 
 ### License
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
-Copyright (c) 2020 **_K. Wicz_**
+Copyright (c) 2020 **_K.Wicz_**
+
+## Setup/Installation Requirements
+
+
+1. Find the green 'Clone or Download' button and copy the link
+2. Open terminal and type...
+
+**Windows**
+```sh 
+cd desktop
+```
+
+ Mac & linux 
+ ```sh
+ cd ~/Desktop
+ ```
+
+ 3. In terminal, clone the project by typing:
+
+```sh
+git clone https://github.com/dustatron/recipe-wizard.git
+```
+
+4. Navigate to the new folder that was created on your desk:
+```sh
+cd recipe-wizard
+```
+
+5. In terminal, type:
+```sh
+npm install
+```
+
+
+8. Create a new Recipe Search API key and ID at [Edamam](https://developer.edamam.com/edamam-recipe-api).
+
+9. In the root directory of your cloned folder, type 
+```sh
+touch .env
+```
+
+10. In your text editor, open the .env file and add
+```sh
+API_KEY = {your key here}
+API_ID = {your ID here}
+```
+11. In the command line, start program with
+```sh
+npm run now
+```
+12. In the command line, start the server by running
+```sh
+firebase serve
+```
+13. Navigate to http://localhost:5000/ in your browser to see the project.
+

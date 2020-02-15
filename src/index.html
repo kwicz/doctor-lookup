@@ -7,16 +7,18 @@
     <title>Doctor Lookup</title>
 </head>
 <body>
+  <div class="container-fluid">
+    <h1>Doctor Lookup</h1>
     <form>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="search">
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="submit" id="search">Search</button>
-          </div>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="search">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="submit" id="search">Search</button>
         </div>
-      </form>
-      <div>
-        <ul class="results"></ul>
       </div>
+    </form>
+    <div id="results" class="myaccordion">
+    </div>
+  </div>
 </body>
 </html>
