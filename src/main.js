@@ -7,8 +7,8 @@ import { MedService } from "./med-service";
 $(document).ready(function() {
   $("form").submit(function(event) {
     event.preventDefault();
+    $("#results").html("");
     const query = $(".form-control").val();
-
     (async () => {
       let medService = new MedService();
       let nameResults;
