@@ -11,22 +11,31 @@ $(document).ready(function() {
 
     (async () => {
       let medService = new MedService();
+      let nameResults;
       const ailmentResults = await medService.getDoctorByAilment(query);
+      console.log("ailmentResults: ", ailmentResults);
+      console.log("ailmentLength: ", ailmentResults.data.length);
       if (ailmentResults.data.length > 0) {
         console.log("ailment: ", ailmentResults);
         getElements(ailmentResults.data);
-      } else {
-        const nameResults = await medService.getDoctorByName(query);
+      } else if (ailmentResults.data.length === 0) {
+        nameResults = await medService.getDoctorByName(query);
+        console.log("nameResults: ", nameResults);
+        console.log("nameResultsLength: ", nameResults.data.length);
         if (nameResults.data.length > 0) {
           console.log("doctor: ", nameResults);
-           getElements(nameResults.data);
+          getElements(nameResults.data);
+        } else {
+          console.log("Name and Ailment lengthsa are 0");
+          $("#results").html("Sorry, there are no results that match your request");
         }
+      }
     })();
 
     function getElements(response) {
       console.log("response: ", response);
       if (!response || response.data === 0) {
-        $(".results").html("Sorry, there are no results that match your request");
+        $(".results").html("Sorry, there are no results that match your request. Please try again.");
       } else {
         printHeader(response);
       }
