@@ -13,28 +13,20 @@ $(document).ready(function() {
       let medService = new MedService();
       let nameResults;
       const ailmentResults = await medService.getDoctorByAilment(query);
-      console.log("ailmentResults: ", ailmentResults);
-      console.log("ailmentLength: ", ailmentResults.data.length);
       if (ailmentResults.data.length > 0) {
-        console.log("ailment: ", ailmentResults);
         getElements(ailmentResults.data);
       } else if (ailmentResults.data.length === 0) {
         nameResults = await medService.getDoctorByName(query);
-        console.log("nameResults: ", nameResults);
-        console.log("nameResultsLength: ", nameResults.data.length);
         if (nameResults.data.length > 0) {
-          console.log("doctor: ", nameResults);
           getElements(nameResults.data);
         } else {
-          console.log("Name and Ailment lengthsa are 0");
           $("#results").html("Sorry, there are no results that match your request. Please try again.");
         }
       }
     })();
 
     function getElements(response) {
-      console.log("response: ", response);
-      if (!response.data || response.data === 0) {
+      if (!response || response.data === 0) {
         $(".results").html("Sorry, there are no results that match your request. Please try again.");
       } else {
         printResults(response);
@@ -42,6 +34,11 @@ $(document).ready(function() {
     }
 
     function printResults(response) {
+      if (response.length === 1) {
+        $("#resultNumber").html(`There is ${response.length} result.`);
+      } else {
+        $("#resultNumber").html(`There are ${response.length} results.`);
+      }
       for (let i = 0; i < response.length; i++) {
         let firstName = response[i].profile.first_name;
         let lastName = response[i].profile.last_name;
