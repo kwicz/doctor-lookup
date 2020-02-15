@@ -9,6 +9,10 @@ $(document).ready(function() {
   $("form").submit(function(event) {
     event.preventDefault();
     $("#results").html("");
+    $("#landing-container").removeClass("landing-img");
+    $("#landing-container").addClass("search-img");
+    $("form").removeClass("landing-form");
+    $("form").addClass("search-form");
     const query = $(".form-control").val();
     (async () => {
       let medService = new MedService();

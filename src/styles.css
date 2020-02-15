@@ -50,3 +50,8 @@ h2 {
   border: none;
 }
 
+#resultNumber {
+  font-style: italic;
+  color: rgb(177, 22, 22);
+}
+
