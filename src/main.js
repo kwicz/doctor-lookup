@@ -5,6 +5,7 @@ import "./styles.css";
 import { MedService } from "./med-service";
 
 $(document).ready(function() {
+
   $("form").submit(function(event) {
     event.preventDefault();
     $("#results").html("");
@@ -34,38 +35,36 @@ $(document).ready(function() {
     }
 
     function printResults(response) {
-      if (response.length === 1) {
-        $("#resultNumber").html(`There is ${response.length} result.`);
-      } else {
-        $("#resultNumber").html(`There are ${response.length} results.`);
-      }
-      for (let i = 0; i < response.length; i++) {
-        let firstName = response[i].profile.first_name;
-        let lastName = response[i].profile.last_name;
-        let title = response[i].profile.title;
-        let bio = response[i].profile.bio;
-        let acceptsNewPatients = response[i].practices[0].accepts_new_patients;
-        let address = response[i].practices[0].visit_address.street;
-        let city = response[i].practices[0].visit_address.city;
-        let state = response[i].practices[0].visit_address.state;
-        let phone = response[i].practices[0].phones[0].number;
-        $("#results").append(
-          `<div class="col-md-12">
-            <div class="card-header" id="headingOne">
-              <h2 class="mb-0">
-                ${firstName} ${lastName}, ${title}
-              </h2>
-            </div>
-            <div class="card-body id="body${i}">
-              <ul>
-                <li>Address: ${address} ${city}, ${state}</li>
-                <li>Phone: ${phone}</li>
-                <li>Accepting New Patients: ${acceptsNewPatients}</li>
-              </ul>
-              <blockquote>${bio}</blockquote>
-            </div>
-          </div>`);
-      }
+        if (response.length === 1) {
+          $("#resultNumber").html(`Displaying ${response.length} result.`);
+        } else {
+          $("#resultNumber").html(`Displaying ${response.length} results.`);
+        }
+        for (let i = 0; i < response.length; i++) {
+          let firstName = response[i].profile.first_name;
+          let lastName = response[i].profile.last_name;
+          let title = response[i].profile.title;
+          let bio = response[i].profile.bio;
+          let acceptsNewPatients = response[i].practices[0].accepts_new_patients;
+          let address = response[i].practices[0].visit_address.street;
+          let city = response[i].practices[0].visit_address.city;
+          let state = response[i].practices[0].visit_address.state;
+          let phone = response[i].practices[0].phones[0].number;
+          $("#results").append(
+            `<div class="card-header" id="heading${i}">
+                <h2 class="mb-0">
+                  ${firstName} ${lastName}, ${title}
+                </h2>
+              </div>
+              <div class="card-body id="body${i}">
+                <ul>
+                  <li>Address: ${address} ${city}, ${state}</li>
+                  <li>Phone: ${phone}</li>
+                  <li>Accepting New Patients: ${acceptsNewPatients}</li>
+                </ul>
+                <blockquote>${bio}</blockquote>
+              </div>`);
+        }
     }
   });
 });
