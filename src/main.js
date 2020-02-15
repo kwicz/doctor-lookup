@@ -25,76 +25,40 @@ $(document).ready(function() {
     }
 
     function printHeader(response) {
+      console.log(response);
       for (let i = 0; i < response.length; i++) {
+        let firstName = response[i].profile.first_name;
+        let lastName = response[i].profile.last_name;
+        let title = response[i].profile.title;
+        let bio = response[i].profile.bio;
+        // let practices = response[i].practices;
+        // let allPractices = [];
+        // for (let x = 0; x < practices.length; x++){
+        //   let practiceName = practices[x].name;
+        //   let practiceNewPatients = practices[0].accepts_new_patients
+        // })
+        let acceptsNewPatients = response[i].practices[0].accepts_new_patients;
+        let address = response[i].practices[0].visit_address.street;
+        let city = response[i].practices[0].visit_address.city;
+        let state = response[i].practices[0].visit_address.state;
+        let phone = response[i].practices[0].phones[0].number;
         $("#results").append(
-          `<div class="card-header" id="heading${i}">
-            <h2 class="mb-0">
-              <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                ${response[i].profile.first_name} ${response[i].profile.last_name}, ${response[i].profile.title}
-                <span class="fa-stack fa-sm">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fas fa-plus fa-stack-1x fa-inverse"></i>
-                </span>
-              </button>
-            </h2>
+          `<div class="col-md-3">
+            <div class="card-header" id="headingOne">
+              <h2 class="mb-0">
+                ${firstName} ${lastName}, ${title}
+              </h2>
+            </div>
+            <div class="card-body">
+              <ul>
+                <li>Bio: ${bio}</li>
+                <li>Address: ${address} ${city}, ${state}</li>
+                <li>Phone: ${phone}</li>
+                <li>Accepting New Patients: ${acceptsNewPatients}</li>
+              </ul>
+            </div>
           </div>`);
       }
     }
-
-    // $(".card-header").on('click, function')
   });
 });
-
-
-      // let doctorList = [];
-      // for (let i = 0; i < response.length; i++) {
-      //   let doctor = {};
-        // doctor.push({firstName : response[i].profile.first_name});
-        // doctor.push({lastName: response[i].profile.last_name});
-        // doctor.push({title: response[i].profile.title});
-        // doctor.push({bio: response[i].profile.bio});
-        // doctorList.push(doctor);
-        // doctor.firstName = response[i].profile.first_name,
-        // doctor.lastName = response[i].profile.last_name,
-        // doctor.title = response[i].profile.title,
-        // doctor.bio = response[i].profile.bio,
-        // doctorList.push(doctor);
-
-
-//         //   <div id="collapse${i}" class="collapse" aria-labelledby="heading${i}" data-parent="#accordion">
-//         //     <div class="card-body">
-//         //       <ul>
-//         //         <li>Bio: ${response[i].profile.bio}</li>
-//         //         <li>Accepting New Patients: ${response[i].practices[0].accepts_new_patients}</li>
-//         //         <li>Sociology</li>
-//         //         <li>Nursing</li>
-//         //         <li>English</li>
-//         //       </ul>
-//         //     </div>
-//         //   </div>`);
-        // let doctor = {
-        //   firstName = response[i].profile.first_name,
-        //   lastName = response[i].profile.last_name,
-        //   title = response[i].profile.title,
-        //   bio = response[i].profile.bio,
-        //   acceptingNewPatients = response[i].practices[0].accepts_new_patients,
-        //   address = response[i].practices[0].practices[0].visit_address.street,
-        //   city = response[i].practices[0].practices[0].visit_address.city,
-        //   state = response[i].practices[0].practices[0].visit_address.state,
-        //   phone = response[i].practices[0].practices[0].visit_address.phone[0].number
-        //   };
-        //   console.log("doctor: ", doctor);
-        // };
-//         // console.log("doctorList: ", doctorList);
-//         // responses.forEach(function(response){
-//         //   console.log(response)
-//         //   $(".results").html(`<li>${response}</li>`);
-//         // })
-
-//         // }
-//       }
-//     }
-//     //   // let doctorResult = medService.getDoctorByName("Smith");
-//     //   // console.log(doctorResult);
-//   });
-// });
