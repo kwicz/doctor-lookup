@@ -4,13 +4,6 @@
 
 #### By _**K. Wicz**_
 
-
-## Preview
-
-[![Landing Page Preview](url-for-img)]
-
-**[View Live Preview](https://kwicz.github.io/doctor-lookup/)**
-
 ## Description
 
 _This application allows a user to search for a doctor by entering either a name or an ailment. The program will return a list of doctors with in 100 miles of Portland and will also proved the doctor's address, their phone number, and whether or not they are accepting new patients._
