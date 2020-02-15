@@ -12,12 +12,20 @@ $(document).ready(function() {
     (async () => {
       let medService = new MedService();
       const ailmentResults = await medService.getDoctorByAilment(query);
-      console.log(ailmentResults);
-      getElements(ailmentResults.data);
+      if (ailmentResults.data.length > 0) {
+        console.log("ailment: ", ailmentResults);
+        getElements(ailmentResults.data);
+      } else {
+        const nameResults = await medService.getDoctorByName(query);
+        if (nameResults.data.length > 0) {
+          console.log("doctor: ", nameResults);
+           getElements(nameResults.data);
+        }
     })();
 
     function getElements(response) {
-      if (!response || response === 0) {
+      console.log("response: ", response);
+      if (!response || response.data === 0) {
         $(".results").html("Sorry, there are no results that match your request");
       } else {
         printHeader(response);
@@ -25,40 +33,39 @@ $(document).ready(function() {
     }
 
     function printHeader(response) {
-      console.log(response);
       for (let i = 0; i < response.length; i++) {
         let firstName = response[i].profile.first_name;
         let lastName = response[i].profile.last_name;
         let title = response[i].profile.title;
         let bio = response[i].profile.bio;
-        // let practices = response[i].practices;
-        // let allPractices = [];
-        // for (let x = 0; x < practices.length; x++){
-        //   let practiceName = practices[x].name;
-        //   let practiceNewPatients = practices[0].accepts_new_patients
-        // })
         let acceptsNewPatients = response[i].practices[0].accepts_new_patients;
         let address = response[i].practices[0].visit_address.street;
         let city = response[i].practices[0].visit_address.city;
         let state = response[i].practices[0].visit_address.state;
         let phone = response[i].practices[0].phones[0].number;
         $("#results").append(
-          `<div class="col-md-3">
+          `<div class="col-md-12">
             <div class="card-header" id="headingOne">
               <h2 class="mb-0">
                 ${firstName} ${lastName}, ${title}
               </h2>
             </div>
-            <div class="card-body">
+            <div class="card-body id="body${i}">
               <ul>
-                <li>Bio: ${bio}</li>
                 <li>Address: ${address} ${city}, ${state}</li>
                 <li>Phone: ${phone}</li>
                 <li>Accepting New Patients: ${acceptsNewPatients}</li>
               </ul>
+              <blockquote>${bio}</blockquote>
             </div>
           </div>`);
       }
     }
+
+    // $(".card-header").on("click", function(){
+    //   let id = event.target.id;
+    //   $("#body"+ id).show();
+    // });
+
   });
 });
